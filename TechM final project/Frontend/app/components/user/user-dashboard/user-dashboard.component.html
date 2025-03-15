@@ -1,0 +1,80 @@
+<div class="dashboard-container">
+  <div class="search-section">
+    <h2>Search Tickets</h2>
+    <form [formGroup]="searchForm" (ngSubmit)="searchTickets()">
+      <div class="form-group">
+        <label for="source">Source</label>
+        <input type="text" id="source" formControlName="source" placeholder="Enter source city">
+      </div>
+      <div class="form-group">
+        <label for="destination">Destination</label>
+        <input type="text" id="destination" formControlName="destination" placeholder="Enter destination city">
+      </div>
+      <div class="form-group">
+        <label for="departureDate">Departure Date</label>
+        <input type="date" id="departureDate" formControlName="departureDate">
+      </div>
+      <div class="form-group">
+        <label for="maxPrice">Max Price</label>
+        <input type="number" id="maxPrice" formControlName="maxPrice" min="0">
+      </div>
+      <button type="submit" [disabled]="!searchForm.valid">Search</button>
+    </form>
+  </div>
+
+  <div class="search-results" *ngIf="searchResults.length > 0">
+    <h3>Search Results</h3>
+    <div *ngFor="let result of searchResults">
+      <h4>Provider ID: {{ result.providerId }}</h4>
+      <div *ngFor="let schedule of result.schedules" class="ticket-card">
+        <p><strong>Travel Date:</strong> {{ schedule.departureTime | date:'medium' }}</p>
+        <p><strong>Price:</strong> ${{ schedule.price }}</p>
+        <p><strong>Available Seats:</strong> {{ schedule.availableSeats }}</p>
+        <input type="text" placeholder="Enter Seat No" #seatInput>
+        <button (click)="bookTicket(result.providerId, schedule.scheduleId, seatInput.value)">Book</button>
+      </div>
+    </div>
+  </div>
+
+  <h2>List of Bookings</h2>
+  <table class="booking-table">
+    <thead>
+      <tr>
+        <th>Source</th>
+        <th>Destination</th>
+        <th>Travel Date</th>
+        <th>Seat No</th>
+        <th>Status</th>
+        <th>Actions</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let ticket of userTickets">
+        <td>{{ ticket.source }}</td>
+        <td>{{ ticket.destination }}</td>
+        <td>{{ ticket.travelDate }}</td>
+        <td>
+          <input type="text" [(ngModel)]="ticket.newSeatNo" placeholder="Enter New Seat No">
+        </td>
+        <td [ngClass]="{'confirmed': ticket.bookingStatus === 'CONFIRMED', 'cancelled': ticket.bookingStatus === 'CANCELLED'}">
+          {{ ticket.bookingStatus }}
+        </td>
+        <td>
+          <button (click)="updateTicket(ticket.id, ticket.newSeatNo)">Update Seat</button>
+          <button (click)="cancelTicket(ticket.id)">Cancel</button>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+
+  <div class="messages" *ngIf="errorMessage || successMessage">
+    <div class="error-message" *ngIf="errorMessage">
+      {{ errorMessage }}
+      <button class="close-btn" (click)="clearMessages()">&times;</button>
+    </div>
+    <div class="success-message" *ngIf="successMessage">
+      {{ successMessage }}
+      <button class="close-btn" (click)="clearMessages()">&times;</button>
+    </div>
+  </div>
+</div>
