@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Document</title>
+</head>
+<body>
+    <div style="padding-left: 20px;">
+        <h2>Student Form</h2>
+        <table style="width:80%">
+            <tr>
+                <td>Student Name</td>
+                <td><input type="text" [(ngModel)]="model.name" /></td>
+                </tr>
+          
+            <tr>
+                <td>Age</td>
+                <td><input type="number" [(ngModel)]="model.age" /></td>
+            </tr>
+
+            <tr>
+                <td>City</td>
+                <td><input type="text" [(ngModel)]="model.city" /></td>
+            </tr>
+
+            <tr>
+                <td>Student DOB</td>
+                <td><input type="date" [(ngModel)]="model.dob" /></td>
+            </tr>
+            <tr>
+                <td></td>
+                <td>
+                    <button class="btn btn-primary" (click)="submit()">&nbsp;&nbsp;&nbsp;Submit</button>
+                    <button class="btn btn-success" (click)="reset()">Clear</button>
+                </td>
+            </tr>
+            
+        </table>
+
+         <h3>Student Details</h3>
+         <div class="ibox-content">
+            <div class="table-responsive">
+                <table class="responsive-table table-striped table-bordered table-hover">
+                <thead>
+                  <tr>
+                    <th style="width: 40%;">
+                        <span>Student Name</span>
+                    </th>
+
+                    <th style="width:15%">
+                        <span>Age</span>
+                    </th>
+
+                    <th style="width:25%">
+                        <span>City</span>
+                    </th>
+
+                    <th style="width:20%">
+                        <span>Date of Birth</span>
+                    </th>
+                  </tr>
+                </thead>
+
+                <tbody>
+                    <tr *ngFor ="let item of source; let i=index">
+                        <td><span>{{ item.name }}</span></td>
+                        <td><span>{{ item.age }}</span></td>
+                        <td><span>{{ item.city }} </span></td>
+                        <td><span> {{ item.dob }}</span></td>
+                    </tr>
+                </tbody>
+            </table>
+         </div>
+      </div>
+   </div>
+</body>
+</html>
