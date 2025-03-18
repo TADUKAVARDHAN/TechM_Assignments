@@ -1,0 +1,44 @@
+<Doctype html5>
+<html>
+<head>
+<title>Error</title>
+</head>
+<body>
+	<h1>An Error Has Occurred</h1>
+
+	<p>
+		<b>Page:</b> <span>Page URL</span>
+	</p>
+
+	<p>
+		<b>Occurred:</b> <span>Timestamp</span>
+	</p>
+
+	<p>
+		<b>Response Status:</b> <span>status-code</span> <span>error ...</span>
+	</p>
+
+	<div>
+		<b>Cause:</b> <span>ex exception
+			...</span> <span>exception
+			...</span> <span>message ...</span>
+		<blockquote>
+			<i>Note: You would never generate a page that displays a Java
+				exception to an end-user in a real application</i>
+		</blockquote>
+	</div>
+
+	<p>
+		Cause unknown (no exception details available)</p>
+
+	<p>
+		You are seeing this error page due to Spring Boot (which returns a
+		view called "error" in response to uncaught exceptions. Since we are
+		using Thymeleaf this corresponds to the template
+		<code>error.html</code>
+		in
+		<code>src/main/resources/templates</code>
+		)
+	</p>
+</body>
+</html>
