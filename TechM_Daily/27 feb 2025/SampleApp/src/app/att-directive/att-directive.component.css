@@ -1,0 +1,9 @@
+body{
+  background-color: bisque;
+  font-style: italic;
+}
+
+marquee{
+  background-color: blueviolet;
+  color:bisque;
+}

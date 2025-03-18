@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Attribute Directive</title>
+</head>
+<body>
+    <h2><marquee>Attribute Property</marquee></h2>
+    <div>
+        <h2 align="center">Attribute-Directives</h2>
+        <span [class.red]="true">Attribute Changed</span>
+        <span [ngClass]="{'yellow':'true'}">Attribute using Ng Class</span>
+        <span [ngClass]="{'blue' : 'true'}">Attribute is Changed</span>
+        <span [ngStyle]="{'font-size' : '14px','color' : 'green'}">Attribute sing Style</span>
+
+        <br /><br />
+        <span [class.cyan]="showColor">Attribute Change</span><br />
+        <span [ngClass]="{'brown':showColor}">Attribute Change by Using NgClass</span><br />
+
+        <input type="button" value="Change Color" (click)="changeColor()" />
+        <br /><br />
+        <span [class.cyan]="showColor">Attribute Change</span><br />
+        <span [ngClass]="{'cyan':showColor, 'red' : !showColor}">Attribute Change by Using NgClass</span><br />
+        <br />
+
+    </div>
+</body>
+</html>
