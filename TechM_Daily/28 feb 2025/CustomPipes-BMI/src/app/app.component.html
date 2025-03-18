@@ -1,0 +1,22 @@
+<body align="center"><div class="card">
+  <div class="card-header">
+    <p>BMI Calculator</p>
+  </div>
+  <div class="card-body">
+    <div class="row">
+      <label for="weight">Weight (kg):</label>
+      <input type="text" id="weight" [(ngModel)]="weight" class="input-field">
+    </div>
+
+    <div class="row">
+      <label for="height">Height (cm):</label>
+      <input type="text" id="height" [(ngModel)]="height" class="input-field">
+    </div>
+
+    <div class="result" *ngIf="weight && height">
+      <h3>Your BMI:</h3>
+      <p>{{ weight | bmiCalculator: height }}</p>
+    </div>
+  </div>
+</div>
+</body>

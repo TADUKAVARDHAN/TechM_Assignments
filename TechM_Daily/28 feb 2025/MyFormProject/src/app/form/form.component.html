@@ -1,0 +1,48 @@
+<h2 class="form-title">Form Module</h2>
+<div class="form-container">
+    <form [formGroup]="loginForm" (ngSubmit)="registerUser()">
+        <table class="form-table">
+            <tr>
+                <td class="label-cell">
+                    <label for="username">User Name</label>
+                </td>
+                <td class="input-cell">
+                    <input type="text" name="username" id="username" [formControl]="username" class="input-field">
+                    <div [hidden]="username.valid || username.untouched" class="error">
+                        <div [hidden]="!username.hasError('minlength')">
+                            Username cannot be shorter than 5 characters.
+                        </div>
+                        <div [hidden]="!username.hasError('required')">
+                            Username is required.
+                        </div>
+                    </div>
+                </td>
+            </tr>
+            <tr>
+                <td class="label-cell">
+                    <label for="password">Password</label>
+                </td>
+                <td class="input-cell">
+                    <input type="password" name="password" id="password" [formControl]="password" class="input-field">
+                    <div [hidden]="password.valid || password.untouched" class="error">
+                        <div [hidden]="!password.hasError('required')">
+                            The password is required.
+                        </div>
+                        <div [hidden]="!password.hasError('needsExclamation')">
+                            Your password must have an exclamation mark!
+                        </div>
+                    </div>
+                </td>
+            </tr>
+            <tr>
+                <td></td>
+                <td>
+                    <button class="btn-submit" [disabled]="!loginForm.valid">Log In</button>
+                </td>
+            </tr>
+        </table>
+    </form>
+    <div *ngIf="showMessage" class="success-message">
+        <h3>Thank You, {{formData.username}}, for registration!</h3>
+    </div>
+</div>

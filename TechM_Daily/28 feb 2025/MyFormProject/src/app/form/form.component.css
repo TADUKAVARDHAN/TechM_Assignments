@@ -1,0 +1,81 @@
+/* General Form Styling */
+.form-container {
+  width: 60%;
+  margin: 20px auto;
+  padding: 20px;
+  border: 2px solid #ddd;
+  border-radius: 10px;
+  background: #f9f9f9;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.form-title {
+  text-align: center;
+  color: #333;
+  font-size: 24px;
+  margin-bottom: 20px;
+}
+
+/* Table Styling */
+.form-table {
+  width: 100%;
+  border-collapse: separate;
+  border-spacing: 10px;
+}
+
+/* Label and Input Styling */
+.label-cell {
+  width: 40%;
+  font-size: 16px;
+  font-weight: bold;
+  color: #333;
+}
+
+.input-cell {
+  width: 60%;
+}
+
+.input-field {
+  width: 100%;
+  padding: 8px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  font-size: 14px;
+}
+
+/* Error Message Styling */
+.error {
+  color: red;
+  font-size: 14px;
+  margin-top: 5px;
+}
+
+/* Submit Button */
+.btn-submit {
+  background-color: #28a745;
+  color: white;
+  border: none;
+  padding: 10px 15px;
+  font-size: 16px;
+  border-radius: 5px;
+  cursor: pointer;
+  width: 100%;
+  transition: background 0.3s ease;
+}
+
+.btn-submit:disabled {
+  background-color: #ccc;
+  cursor: not-allowed;
+}
+
+.btn-submit:hover:not(:disabled) {
+  background-color: #218838;
+}
+
+/* Success Message */
+.success-message {
+  text-align: center;
+  color: #28a745;
+  font-size: 18px;
+  margin-top: 20px;
+}
