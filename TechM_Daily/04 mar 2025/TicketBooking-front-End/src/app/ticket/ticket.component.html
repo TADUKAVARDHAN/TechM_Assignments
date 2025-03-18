@@ -1,0 +1,27 @@
+<form (ngSubmit)="Save()">
+    <label for="id">ID:</label><br>
+    <input type="text" [(ngModel)]="id" name="id" required>
+    <br>
+    <label for="firstName">First Name:</label><br>
+    <input type="text" [(ngModel)]="firstName" name="firstName" required>
+    <br>
+    <label for="lastName">Last Name:</label><br>
+    <input type="text" [(ngModel)]="lastName" name="lastName" required>
+    <br>
+    <label for="email">Email id:</label><br>
+    <input type="email" [(ngModel)]="email" name="email" required>
+    <br>
+    <label for="phno">Phone No:</label><br>
+    <input type="text" [(ngModel)]="phno" name="phno" required>
+    <br>
+    <label for="source">Source:</label><br>
+    <input type="text" [(ngModel)]="source" name="source" required>
+    <br>
+    <label for="destination">Destination:</label><br>
+    <input type="text" [(ngModel)]="destination" name="destination" required>
+    <br>
+    <label for="date">Date of Journey:</label><br>
+    <input type="date" [(ngModel)]="date" name="date" required>
+    <br>
+    <button type="submit">Book Ticket</button>
+</form>
