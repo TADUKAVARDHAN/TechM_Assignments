@@ -1,0 +1,66 @@
+<div class="container">
+  <div class="card">
+    <h2>Enter Courses</h2>
+
+    <input type="text" [(ngModel)]="newCourse" placeholder="Enter course name">
+    <button (click)="addCourse()">Add Course</button>
+
+    <ul>
+      <li *ngFor="let course of courses">{{ course }}</li>
+    </ul>
+
+    <button (click)="submitCourses()" [disabled]="courses.length === 0">Submit</button>
+
+    <div *ngIf="submitted" class="result">
+      <h3>Selected Courses:</h3>
+      <p>{{ courses.join(', ') }}</p>
+    </div>
+  </div>
+</div>
+
+<style>
+  .container {
+    max-width: 400px;
+    margin: auto;
+    padding: 20px;
+  }
+  .card {
+    padding: 20px;
+    border-radius: 10px;
+    background: white;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    text-align: center;
+  }
+  input {
+    width: 80%;
+    padding: 8px;
+    margin-top: 5px;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+  }
+  button {
+    margin-top: 10px;
+    padding: 8px;
+    background-color: blue;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+  }
+  ul {
+    list-style: none;
+    padding: 0;
+  }
+  li {
+    background: #f8f9fa;
+    padding: 5px;
+    margin: 5px 0;
+    border-radius: 5px;
+  }
+  .result {
+    margin-top: 20px;
+    background: #d1ecf1;
+    padding: 10px;
+    border-radius: 5px;
+  }
+</style>
