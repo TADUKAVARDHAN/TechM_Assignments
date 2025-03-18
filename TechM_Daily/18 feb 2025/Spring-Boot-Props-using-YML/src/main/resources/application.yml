@@ -1,0 +1,15 @@
+spring:
+ application:
+  name: Spring-Boot-Props
+server:
+ port: 8282
+my: 
+ code:
+  id: 5
+  name: Bhanu
+  mdn:
+   object: CLR
+   type: big
+   sale: Yes
+   str:
+    service: all
